@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/" method="POST" id="disconnect">
+        <input type="hidden" value="disconnect" name="disconnect">
+        <button type="submit">disconnect</button>
+    </form>
+    {{$Name := .Name}}
+    <h1>BIENVENUE, {{.Name}}</h1>
+
+    <h2>Actualité du moment :</h2>
+
+    <form action="/" method="POST">
+        <div>
+            <label for="">Titre : </label> <input type="text" name="PostTitle" />
+        </div>
+        <textarea name="PostDescription" id="" cols="30" rows="10" placeholder="Description"></textarea>
+        <div>
+        <label for="">Informatique</label><input type="checkbox" name="Informatique" id="" value="Informatique">
+        </div>
+        <div>
+        <label for="">Jeux</label><input type="checkbox" name="Jeux" id="" value="Jeux">
+        </div>
+        <div>
+        <label for="">Animation</label><input type="checkbox" name="Animation" id="" value="Animation">
+        </div>
+        <div>
+        <label for="">Golang</label><input type="checkbox" name="Golang" id="" value="Golang">
+        </div>
+        <button type="submit">Créer Post</button>
+    </form>
+
+    <div id="PostsContent">
+        {{range .Posts}}
+        <div class="PostsContainer" id="{{.ID}}">
+            <p>{{.Title}}</p>
+            <textarea name="" readonly id="" cols="30" rows="10">{{.Description}}</textarea>
+            <p>Nombre de likes : {{.NbrLikes}}</p>
+            <p>Nombre de Dislikes : {{.NbrDislike}}</p>
+            <p>Tags : {{range .Tags}} {{.Tag}}, {{end}}</p>
+            <p>Publié le : {{.Dates}}</p>
+            <form action="/" method="POST">
+                <input type="hidden" name="Like" value="{{.ID}}" />
+                <button type="submit" class=""> Liker le Post</button>
+            </form>
+            <form action="/" method="POST">
+                <input type="hidden" name="DislikedPost" value="{{.ID}}" />
+                <button type="submit" class=""> Disliker le Post</button>
+            </form>
+            <div id="Commenter">
+                <form action="/" method="POST">
+                    <input type="hidden" name="Date" value="31/05/2021">
+                    <input type="hidden" name="PostID" value="{{.ID}}">
+                    <textarea required name="Commentaire" id="" cols="30" rows="10"></textarea>
+                    <button type="submit">Ajouter Commentaire</button>
+                </form>
+            </div>
+            <div class="ListComment">
+                {{range .Commentaires}}
+                    <div class="CommentContent">
+                        <p>Écrit par : {{.Autor}} le {{.Dates}}</p>
+                        <p>Likée par {{.NbrLikes}} personnes</p>
+                        <p>Dislikée par {{.NbrDislike}} personnes</p>
+                        <textarea readonly id="" cols="20" rows="8">{{.Message}}</textarea>
+                        <form action="/" method="post">
+                        <input type="hidden" name="LikeComment" value="{{.ID}}">
+                        <button type="submit">Liker le commentaire</button>
+                        </form>
+                        <form action="/" method="post">
+                        <input type="hidden" name="DislikeComment" value="{{.ID}}">
+                        <button type="submit">Disliker le commentaire</button>
+                        </form>
+                        {{if eq .Autor $Name}}
+                            <form action="/" method="post">
+                                <input type="hidden" name="DeleteComment" value="{{.ID}}">
+                                <button type="submit">Supprimer Le Commentaire</button>
+                            </form>
+                        {{end}}
+                    </div>
+
+                {{end}}
+            </div>
+            
+            <p>Publié par : {{.Autor}}</p>
+            {{if eq .Autor $Name}}
+            <form action="/" method="post">
+                <input type="hidden" name="DeletePost" value="{{.ID}}" />
+                <button type="submit" class="">Supprimer le post</button>
+            </form>
+            {{end}}
+            
+        </div>
+        {{end}}
+    </div>
+</body>
+
+<style>
+    #disconnect {
+        position: fixed;
+        top: 100px;
+        right: 100px;
+    }
+    
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #PostsContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 80vw;
+        height: 60vh;
+        overflow-y: scroll;
+        margin: auto;
+        margin-top: 100px;
+    }
+    
+    .PostsContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 5mm;
+        background-color: aliceblue;
+        width: 300px;
+    }
+</style>
+
+</html>

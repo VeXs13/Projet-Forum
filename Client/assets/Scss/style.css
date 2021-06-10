@@ -1,0 +1,80 @@
+/* * {
+margin: 0;
+padding: 0;
+} */
+html {
+  /* background-color: lightgray; */
+  position: absolute;
+  top: 0;
+  margin-left: 11% !important;
+  margin-right: 10% !important;
+  margin-top: 4% !important;
+  margin-bottom: 3% !important;
+}
+
+body,
+html {
+  background-image: url("https://cdn.wallpapersafari.com/83/61/3MbidN.gif");
+  background-repeat: repeat;
+  background-size: cover;
+  /* background-position: fixed; */
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
+  background-position: bottom;
+}
+
+.headerFixed {
+  z-index: 100;
+  position: fixed;
+  padding: 10px;
+  background: -webkit-gradient(linear, right top, left top, from(#8942a8), to(#ba382f));
+  background: linear-gradient(to left, #8942a8, #ba382f);
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.headerleft {
+  text-align: center;
+}
+
+.headercenter {
+  position: absolute;
+  margin: auto;
+  width: 100% !important;
+}
+
+.headerright {
+  text-align: center;
+}
+
+.beside {
+  background-color: white;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.beside2 {
+  padding: 38vh;
+  text-align: center;
+}
+
+.footer {
+  z-index: 100;
+  position: fixed;
+  background-color: white;
+  width: 110%;
+  left: 0;
+  bottom: 0;
+}
+
+.login {
+  width: 100% !important;
+  background-color: white;
+  padding: 1%;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: black;
+}
+/*# sourceMappingURL=style.css.map */

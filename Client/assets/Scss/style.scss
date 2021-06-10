@@ -1,0 +1,169 @@
+/* * {
+margin: 0;
+padding: 0;
+} */
+
+html{
+    /* position: absolute;
+    top: 0;
+    margin-left: 11% !important;
+    margin-right: 10% !important; */
+    margin-top: 4% !important;
+    margin-bottom: 3% !important;
+    overflow-x: hidden;
+}
+
+body,html{
+    /* background-image:url('https://cdn.wallpapersafari.com/83/61/3MbidN.gif'); background-repeat:repeat; */
+    background-size:cover;
+    background-color: #0e223b !important;
+    /* background-position: fixed; */
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    background-position: bottom;
+}
+/* header */
+.headerFixed{
+    z-index: 100;
+    position: fixed;
+    padding: 10px;
+    /* background: linear-gradient(to left, #8942a8, #ba382f); */
+    background-color: #0e223b;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.headerleft{
+    text-align: center;
+}
+.headercenter{
+    position: absolute;
+    margin: auto;
+    display: flex;
+    width: 100% !important;
+    text-align: center !important;
+}
+.headerright{
+    text-align: center;
+}
+/* /header */
+/* body */
+.beside{
+    border: 3px solid #385170;
+    background-color: transparent;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.beside1{
+    margin-top: 3%;
+    text-align: center;
+}
+.beside2{
+    height: 74vh;
+    text-align: center;
+}
+@media screen and (max-width: 1250px){
+
+    .beside1{
+        margin-top: 10%;
+    }
+    .beside{
+        margin-bottom: 3%;
+    }
+  }
+@media screen and (max-width: 900px){
+
+    .beside1{
+        margin-top: 19%;
+    }
+    .beside{
+        margin-bottom: 3%;
+    }
+  }
+
+@media screen and (max-width: 600px){
+
+    .beside1{
+        margin-top: 25%;
+    }
+    .beside{
+        margin-bottom: 3%;
+    }
+    .btn-sidenav{
+        z-index: 101 !important;
+    }
+  }
+  /* /body */
+.footer{
+    z-index: 100;
+    position: fixed;
+    background-color: white;
+    width: 110% !important;
+    right: 0;
+    bottom: 0;
+}
+.login{
+    width: 100% !important;
+    background-color: white;
+    padding: 1%;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+}
+/* sidenav */
+.sidenav{
+    z-index: 100 !important;
+    width: 12% !important;
+    border-right: 3px solid #385170;
+    background-color: #0e223b !important;
+}
+.btn-sidenav{
+    z-index: 99;
+    position: absolute !important;
+    bottom: 0.8% !important;
+}
+@media screen and (max-width: 960px){
+    .btn-sidenav{
+        z-index: 101 !important;
+    }
+  }
+/* /sidenav */
+#custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#D9230F;
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}

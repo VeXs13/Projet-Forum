@@ -1,0 +1,11 @@
+* Ce qu'il reste à faire en back :
+    - Optimisation code (Database)
+    - Mettre en place la recherche de publications + Filtres (Tri de publication ?)
+    - Nouvelle page pour profil
+    - Gérer les logs (Action en tant que connecté, non connécté)
+    - Gérer les cookies ==> IND
+    - Gestion de la publications d'images ==> IND
+
+* Utilisation de Docker
+* Commencer le front 
+
