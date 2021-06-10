@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	pages "./Server/controllers/pages"
+	pages "Forum/Server/controllers/pages"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -19,7 +19,7 @@ import (
 } */
 
 func main() {
-	fs := http.FileServer(http.Dir("../Client/assets"))
+	fs := http.FileServer(http.Dir("./Client/assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 	http.HandleFunc("/login", pages.LoginPage)
 	http.HandleFunc("/", pages.HomePage)
