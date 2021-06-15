@@ -1,11 +1,29 @@
-* Ce qu'il reste à faire en back :
-    - Optimisation code (Database)
-    - Mettre en place la recherche de publications + Filtres (Tri de publication ?)
-    - Nouvelle page pour profil
-    - Gérer les logs (Action en tant que connecté, non connécté)
-    - Gérer les cookies ==> IND
-    - Gestion de la publications d'images ==> IND
+==> Obligatoire (sujet principal)
+    Lier le back et le front
+     Backend : 
+        - Faire la fonction de tri pour les dates
+        - Optimiser le code 
+        - Faire le tri fusion pour les fonctions de tri
+        - Gérer la modification du profil et l'ajout d'informations éventuelles (adresses, nom de famille)
+    Frontend : 
+        - Faire les pages avec un beau design : 
+            * Profil (possibilité de modifier le Profil avec une popUp et un form) 
+            * Finir la Page Home 
+            * Faire la page de "détails" d'une publication 
 
-* Utilisation de Docker
-* Commencer le front 
 
+
+==> Additionnel (sujet externes)
+    Backend : 
+        - Gérer les admin, modérateurs
+        - Crypter et sécuriser les cookies 
+        - Connexion HTTPS, Certifical SSL, Session Cookies Unique (UUID)...
+        - Authentification (Google, Github...)
+        - Image Upload lors de la création d'un post, et visible par les autres utilisateurs
+        - Gestiond des notifications 
+
+    Fronted : 
+        - Gérer via du goHTML la possibilité des admin, modérateurs + création d'un form des modérateurs, pour ajouter un modérateurs ou supprimer une publication
+        - Possibilité dans le forum d'ajouter une image lors de la publication d'un post.
+        - Afficher (peut être) du texte en markdown (pour plus de clarté lors de la publication d'un post)
+        - Faire la page des notification

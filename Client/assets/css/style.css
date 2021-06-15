@@ -24,6 +24,13 @@ html {
     background-position: bottom;
 }
 
+p,
+h1,
+a,
+textarea {
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
 .headerFixed {
     z-index: 100;
     position: fixed;
@@ -205,7 +212,6 @@ input {
     z-index: 1;
 }
 
-
 .container.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1;
@@ -332,3 +338,13 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
+
+
+/* #deco {
+    position: absolute;
+    display: flex;
+    bottom: 14px;
+    margin-left: 89px;
+    background: none;
+    color: white;
+} */

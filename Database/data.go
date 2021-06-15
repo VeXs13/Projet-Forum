@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 
+	models "../Server/models"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -17,21 +18,27 @@ var Database *sql.DB
 
 func InitUserDatabase() *sql.Stmt {
 	Database, _ = sql.Open("sqlite3", "./Database/UserT.db")
-	UserStatement, _ := Database.Prepare(`
+	UserStatement, err := Database.Prepare(`
 	CREATE TABLE IF NOT EXISTS Utilisateur (
 		ID INTEGER PRIMARY KEY ASC AUTOINCREMENT, 
-		Nom 		STRING NOT NULL, 
-		PRENOM 		STRING NOT NULL, 
-		MAIL 		STRING UNIQUENOT NULL, 
-		PASSWORD 	STRING NOT NULL, 
-		ADDRESSE	STRING NOT NULL
+		Pseudo 				STRING NOT NULL, 
+		MAIL 				STRING UNIQUENOT NULL, 
+		PASSWORD 			STRING NOT NULL, 
+		InscriptionDate		STRING NOT NULL,
+		NumberOfPosts 		INTEGER, 
+		NumberOfFriend 		INTEGER,
+		LastActivityDate 	STRING,
+		Description 		STRING, 
+		Image 				STRING
 	  );`)
 	UserStatement.Exec()
-	UserStatement, _ = Database.Prepare(`
+	CheckError(err, " statement line 33 ")
+	UserStatement, err = Database.Prepare(`
 	INSERT INTO Utilisateur (
-	Nom, PRENOM, MAIL, PASSWORD, ADDRESSE
-	) 
-	VALUES (?, ?, ?, ?, ?)`)
+		Pseudo, MAIL, PASSWORD, InscriptionDate, NumberOfPosts, NumberOfFriend, LastActivityDate, Description, Image
+		) 
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+	CheckError(err, " statement line 39 ")
 	return UserStatement
 }
 
@@ -42,20 +49,18 @@ func InitPostUserData() *sql.Stmt {
 		Titre 				STRING NOT NULL, 
 		Description 		STRING NOT NULL, 
 		Likes 				INTEGER, 
-		WhoHaveLiked 		STRING NOT NULL, 
 		Dislikes 			INTEGER, 
-		WhoHaveDisliked 	STRING, 
 		Dates 				STRING NOT NULL, 
 		AutorName 			STRING NOT NULL
 	  );`)
-	CheckError(err, "statement")
+	CheckError(err, "statement line 54")
 	PostStatement.Exec()
 	PostStatement, err = Database.Prepare(`
 	INSERT INTO Posts (
-	Titre, Description, Likes, WhoHaveLiked, Dislikes, WhoHaveDisliked, Dates, AutorName
+	Titre, Description, Likes, Dislikes, Dates, AutorName
 	) 
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?)`)
-	CheckError(err, "statement")
+	VALUES (?, ?, ?, ?, ?, ?)`)
+	CheckError(err, "statement line 61")
 	return PostStatement
 }
 
@@ -67,19 +72,17 @@ func InitCommentData() *sql.Stmt {
 		CommentPostID 	INTEGER, 
 		User 			STRING NOT NULL, 
 		Likes 			INTEGER, 
-		WhoHaveLiked 	STRING, 
 		Dislikes 		INTEGER, 
-		WhoHaveDisliked STRING, 
 		Dates 			STRING
 	);`)
-	CheckError(err, "statement")
+	CheckError(err, "statement line 76")
 	CommentStatement.Exec()
 	CommentStatement, err = Database.Prepare(`
 	INSERT INTO Commentaires (
-		Comment, CommentPostID, User, Likes, WhoHaveLiked, Dislikes, WhoHaveDisliked, Dates
+		Comment, CommentPostID, User, Likes, Dislikes, Dates
 	) 
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?)`)
-	CheckError(err, "statement")
+	VALUES (?, ?, ?, ?, ?, ?)`)
+	CheckError(err, "statement line 83")
 	return CommentStatement
 }
 
@@ -143,4 +146,80 @@ func InitLikeData() *sql.Stmt {
 	VALUES (?, ?, ?)`)
 	CheckError(err, "FavPostStatement")
 	return LikeStatement
+}
+
+func InitAllTopicUserData() *sql.Stmt {
+	AllTopicStatement, err := Database.Prepare(`
+	CREATE TABLE IF NOT EXISTS AllTopic (
+		ID INTEGER PRIMARY KEY ASC AUTOINCREMENT,
+		Name STRING NOT NULL, 
+		NumberOfPublication INTEGER,
+		LastActivity STRING NOT NULL
+	)
+	`)
+	CheckError(err, "line 156 ")
+	AllTopicStatement.Exec()
+
+	AllTopicStatement, err = Database.Prepare(`
+	INSERT INTO AllTopic (
+		Name, NumberofPublication, LastActivity
+	)
+	VALUES (?, ?, ?)
+	`)
+
+	CheckError(err, "line 166 ")
+	return AllTopicStatement
+
+}
+
+func InitAllTopicInDatabase() []models.Tag {
+	var AllTopicStatement *sql.Stmt = InitAllTopicUserData()
+	AllTags := []string{"Electronique", "Programmation", "Jeux", "Animation", "Musique", "Sport", "Ynov", "Horreur", "Film/Séries"}
+
+	for _, Tag := range AllTags {
+		AllTopicStatement.Exec(Tag, 0, "Never")
+	}
+
+	return ReturnAllTopic()
+}
+
+func MaybeHaveAlreadyTopicInDatabase() bool {
+	rows, err := Database.Query("SELECT * FROM AllTopic")
+	CheckError(err, "line 179 ")
+	defer rows.Close()
+	var boolean bool
+	for rows.Next() {
+		boolean = true
+	}
+
+	return boolean
+}
+
+func ReturnAllTopic() []models.Tag {
+	if MaybeHaveAlreadyTopicInDatabase() {
+		var AllTags []models.Tag
+		rows, err := Database.Query("SELECT * FROM AllTopic")
+		CheckError(err, "line 179 ")
+		defer rows.Close()
+		for rows.Next() {
+			var CurrTag models.Tag
+			var id int
+			var Topic string
+			var NumberOfPosts int
+			var LastPostPublished string
+
+			err = rows.Scan(&id, &Topic, &NumberOfPosts, &LastPostPublished)
+			CheckError(err, "scan 197 ")
+			CurrTag.Name = Topic
+			CurrTag.NumberOfPosts = NumberOfPosts
+			CurrTag.LastPostPublished = LastPostPublished
+			AllTags = append(AllTags, CurrTag)
+
+		}
+
+		return AllTags
+	} else {
+		return InitAllTopicInDatabase()
+	}
+
 }

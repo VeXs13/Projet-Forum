@@ -25,7 +25,6 @@ a,
 textarea {
     font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     resize: none;
-    border-radius: 5px;
 }
 
 body::-webkit-scrollbar {
@@ -33,11 +32,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: #15202b;
+    background: #2B4157;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: linear-gradient(transparent, rgb(121, 75, 196), #5729e5);
+    background: linear-gradient(transparent, rgb(121, 75, 196), #5729E5);
 }
 
 div::-webkit-scrollbar {
@@ -45,11 +44,11 @@ div::-webkit-scrollbar {
 }
 
 div::-webkit-scrollbar-track {
-    background: #15202b;
+    background: #2B4157;
 }
 
 div::-webkit-scrollbar-thumb {
-    background: linear-gradient(transparent, rgb(121, 75, 196), #5729e5);
+    background: linear-gradient(transparent, rgb(121, 75, 196), #5729E5);
 }
 
 
@@ -71,8 +70,8 @@ div::-webkit-scrollbar-thumb {
 }
 
 .sidenav {
-    background-color: #0b1117 !important;
-    border-right: 2px solid #15202b !important;
+    background-color: #0B1117 !important;
+    border-right: 2px solid #15202B !important;
     color: aliceblue !important;
 }
 
@@ -84,14 +83,10 @@ div::-webkit-scrollbar-thumb {
 .nbrco {
     color: rgb(121, 75, 196) !important;
     margin-left: 5px;
-    font-size: 1.05em;
+    font-size: 1em;
 }
 
 #publish {
-    /* border-top-left-radius:  12px;
-    border-top-right-radius:  12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px; */
     transition: 0.5s all;
     border-radius: 20px;
     padding: 3mm;
@@ -102,17 +97,48 @@ div::-webkit-scrollbar-thumb {
     margin-top: 2mm;
 }
 
+.linkVal {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5mm;
+    width: 100%;
+}
 
-/* #publish:hover {
-  transition: 0.5s;
-  transform: scale(1.1);
-  background-color: rgb(121, 75, 196);
-  border: #5729e5;
+.LinkContent {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.LinkContent a {
+    font-weight: bold;
+    font-size: 1.25em;
+    /* margin-bottom: 1mm; */
+}
+
+.linkVal:hover {
+    color: aliceblue;
+}
+
+.linkVal i {
+    margin-left: 3mm;
+    font-size: 1.5em;
+    /* margin-bottom: 1mm; */
+}
+
+
+/* 
+#publish:hover {
+    width: 150%;
+    height: 120%;
+    transition: 0.5s;
+    background-color: rgb(121, 75, 196);
+    border: #5729E5;
 } */
 
 .TrackedStuff {
     color: rgb(121, 75, 196);
-    font-size: 1.05em;
+    font-size: 1em;
 }
 
 .footer {
@@ -128,17 +154,17 @@ div::-webkit-scrollbar-thumb {
 }
 
 #grix {
-    background-color: #15202b;
+    background-color: #15202B;
     margin-right: 1vw !important;
     margin-left: 1vw !important;
     height: 100%;
     text-align: center;
-    color: #8497b0;
-    border-radius: 12px;
+    color: aliceblue;
+    border-radius: 12px
 }
 
 #grixactu {
-    background-color: #15202b;
+    background-color: #15202B;
     margin-right: 1vw !important;
     margin-left: 1vw !important;
     margin-bottom: 10%;
@@ -158,7 +184,7 @@ div::-webkit-scrollbar-thumb {
     margin-left: 1vw !important;
     height: 100%;
     text-align: center;
-    color: #8497b0;
+    color: #8497B0;
 }
 
 #grixdelete {
@@ -175,11 +201,7 @@ div::-webkit-scrollbar-thumb {
     display: flex;
     margin: auto;
     width: 100%;
-    border-bottom: #15202b 1px solid;
-}
-
-#PostsContent:hover {
-    background-color: #7455c286;
+    border-bottom: #15202B 1px solid;
 }
 
 .containe {
@@ -200,12 +222,7 @@ div::-webkit-scrollbar-thumb {
 }
 
 .for3 {
-    text-align: center;
-}
-
-button {
-    outline: none;
-    border: 0;
+    text-align: right;
 }
 
 .for4 {
@@ -214,10 +231,10 @@ button {
 
 #grixTop {
     font-size: 1.30em;
-    background-color: #15202b !important;
+    background-color: #15202B !important;
     height: 100%;
     text-align: center;
-    color: #8497b0;
+    color: aliceblue;
     border-radius: 12px !important;
     display: flex;
 }
@@ -235,11 +252,11 @@ button {
 }
 
 #grixforum {
-    background-color: #0a0f14;
+    background-color: #0A0F14;
     height: 70vh;
-    border-bottom: 2px solid #15202b !important;
-    border-left: 2px solid #15202b !important;
-    border-right: 2px solid #15202b !important;
+    border-bottom: 2px solid #15202B !important;
+    border-left: 2px solid #15202B !important;
+    border-right: 2px solid #15202B !important;
     text-align: center;
     color: aliceblue;
     overflow: scroll;
@@ -249,12 +266,15 @@ button {
 #filter {
     font-size: 1.25em;
     width: 100%;
-    background-color: #15202b !important;
-    color: #8497b0;
+    background-color: #15202B !important;
+    color: aliceblue;
     outline: none;
 }
 
 #filter:hover {
+    height: 200%;
+    width: 200%;
+    transition: 0.5s;
     background-color: rgb(121, 75, 196) !important;
 }
 
@@ -264,6 +284,9 @@ button {
     }
     #grixdelete2 {
         display: none !important;
+    }
+    .des {
+        width: 350% !important;
     }
 }
 
@@ -279,6 +302,10 @@ button {
     }
     .sidenav {
         width: 300px !important;
+    }
+    .des {
+        position: absolute;
+        width: 600%;
     }
 }
 
@@ -307,25 +334,30 @@ button {
 } */
 
 @media screen and (max-width: 957px) {
-    #grixforum {
-        font-size: 10px !important;
+    html {
+        overflow-y: visible;
+    }
+    .chat {
+        display: none;
+    }
+    #grixactu {
+        background-color: #15202b;
+        margin-right: 1vw !important;
+        margin-left: 1vw !important;
+        margin-bottom: 10%;
+        height: 430px;
+        text-align: center;
+        color: aliceblue;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 
-html {
-    overflow-y: visible;
-}
-
-.chat {
-    display: none;
-}
-
-#grixactu {
-    margin-top: 10%;
-}
-
 .actu {
-    border: #273b4f 1px solid;
+    border: #273B4F 1px solid;
     border-radius: 12px;
     width: 90%;
     margin-top: -15%;
@@ -346,14 +378,14 @@ html {
 }
 
 .ami {
-    border: #273b4f 1px solid;
+    border: #273B4F 1px solid;
     border-radius: 12px;
     width: 90%;
     margin-bottom: 10%;
 }
 
 .ami1 {
-    border-bottom: #273b4f 1px solid;
+    border-bottom: #273B4F 1px solid;
 }
 
 .chat {
@@ -393,11 +425,11 @@ html {
 #example- {
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
-    border: #273b4f 1px solid;
+    border: #273B4F 1px solid;
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #15202b !important;
+    background-color: #15202B !important;
 }
 
 p {
@@ -405,7 +437,61 @@ p {
 }
 
 .textbox {
-    border: #273b4f 1px solid;
+    border: #273B4F 1px solid;
+}
+
+
+/*  */
+
+
+/*  */
+
+.Ami {
+    display: flex;
+    margin-left: 10%;
+    color: aliceblue;
+    width: 100%;
+    margin-bottom: 6%;
+}
+
+.info {
+    position: relative;
+    margin-left: 5%;
+}
+
+.pagin {
+    display: flex;
+    width: 100%;
+}
+
+#image {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.Friendcont {
+    height: 75vh;
+    overflow-x: hidden !important;
+    overflow: scroll;
+}
+
+#grixcontains {
+    height: 47.5px;
+}
+
+.des {
+    position: absolute;
+}
+
+.contai {
+    background: #0B1117;
+    padding: 10px;
+    border: 2px solid #273B4F;
+}
+
+#amimage {
+    border-radius: 50%;
 }
 
 .ImageNameContainer {
@@ -423,7 +509,7 @@ p {
     align-items: center;
     /* flex-direction: column; */
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: 0;
 }
 
@@ -553,4 +639,5 @@ p {
     margin-left: 89px;
     background: none;
     color: white;
+    border: none;
 }

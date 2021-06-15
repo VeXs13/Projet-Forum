@@ -158,7 +158,7 @@ input {
 }
 
 .overlay {
-    background: #FF416C;
+    /* background: #FF416C; */
     background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
     background: linear-gradient(to right, #FF4B2B, #FF416C);
     background-repeat: no-repeat;
@@ -222,29 +222,4 @@ input {
     margin: 0 5px;
     height: 40px;
     width: 40px;
-}
-
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
 }

@@ -24,8 +24,6 @@ h1,
 a,
 textarea {
     font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    resize: none;
-    border-radius: 5px;
 }
 
 body::-webkit-scrollbar {
@@ -100,6 +98,35 @@ div::-webkit-scrollbar-thumb {
     color: aliceblue;
     font-weight: bold;
     margin-top: 2mm;
+}
+
+.linkVal {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5mm;
+    width: 100%;
+}
+
+.LinkContent {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.LinkContent a {
+    font-weight: bold;
+    font-size: 1.25em;
+    /* margin-bottom: 1mm; */
+}
+
+.linkVal:hover {
+    color: aliceblue;
+}
+
+.linkVal i {
+    margin-left: 3mm;
+    font-size: 1.5em;
+    /* margin-bottom: 1mm; */
 }
 
 
@@ -184,32 +211,18 @@ div::-webkit-scrollbar-thumb {
 
 .containe {
     width: 100%;
-    text-align: center !important;
+}
+
+.containee {
+    width: 100%;
+}
+
+.containees {
+    width: 100%;
 }
 
 .PostsContainer {
     display: flex;
-}
-
-.for {
-    text-align: left;
-}
-
-.for2 {
-    text-align: center;
-}
-
-.for3 {
-    text-align: center;
-}
-
-button {
-    outline: none;
-    border: 0;
-}
-
-.for4 {
-    text-align: center;
 }
 
 #grixTop {
@@ -306,22 +319,81 @@ button {
   color: white;
 } */
 
+.topnav .search-container {
+    float: right;
+}
+
+.topnav input[type="text"] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 1.25em;
+    border: none;
+}
+
+#search {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: #15202b !important;
+    color: #8497b0 !important;
+    outline: none;
+}
+
+.topnav .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #15202b !important;
+    color: #8497b0 !important;
+    font-size: 1.25em;
+    border: none;
+    cursor: pointer;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
 @media screen and (max-width: 957px) {
     #grixforum {
         font-size: 10px !important;
     }
-}
-
-html {
-    overflow-y: visible;
-}
-
-.chat {
-    display: none;
-}
-
-#grixactu {
-    margin-top: 10%;
+    .topnav .search-container {
+        float: none;
+    }
+    html {
+        overflow-y: visible;
+    }
+    .chat {
+        display: none;
+    }
+    #grixactu {
+        margin-top: 10%;
+    }
+    #search {
+        border-bottom-left-radius: 0%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    .topnav .search-container button {
+        border-radius: 0%;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .topnav .search-container button:hover {
+        background-color: rgb(121, 75, 196) !important;
+    }
+    .topnav a,
+    .topnav input[type="text"],
+    .topnav .search-container button {
+        float: none;
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 1px;
+    }
+    .topnav input[type="text"] {
+        border: 1px solid #2b4157 !important;
+    }
 }
 
 .actu {
@@ -423,7 +495,7 @@ p {
     align-items: center;
     /* flex-direction: column; */
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: 0;
 }
 
@@ -544,6 +616,18 @@ p {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.why {
+    background-color: transparent;
+    border: transparent;
+    color: aliceblue
+}
+
+.sup {
+    background: none;
+    color: rgb(255, 255, 255);
+    border: none;
 }
 
 #deco {

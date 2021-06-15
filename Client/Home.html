@@ -14,6 +14,9 @@
         <button type="submit">disconnect</button>
     </form>
     {{$Name := .Name}}
+    {{if eq .Session "Expired"}}
+        <h1> Ton oncle</h1>
+    {{end}}
     <h1>BIENVENUE, {{.Name}}</h1>
 
     <h2>Actualité du moment :</h2>

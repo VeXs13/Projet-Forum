@@ -1,0 +1,40 @@
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: #1A237E
+}
+
+.modal-body {
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1A237E
+}
+
+.checkbox-form {
+    background: #FFEBEE;
+    color: #D32F2F;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 1px
+}
+
+.learn {
+    text-decoration: none;
+    color: #fff
+}
+
+.add-list {
+    height: 45px;
+    line-height: 27px;
+    background-color: #D32F2F;
+    color: #fff !important
+}
+
+#textarea {
+    resize: none;
+}
